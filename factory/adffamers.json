@@ -1,0 +1,15 @@
+{
+	"name": "adffamers",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9b83c358-01b7-4617-87e9-c3f1ff3358da",
+		"tenantId": "2e948a10-0861-40fe-a352-1147bec1c0d0"
+	}
+}
