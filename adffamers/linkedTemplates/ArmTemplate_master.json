@@ -1,0 +1,280 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adffamers"
+		},
+		"DS_SQL_SERVER_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'DS_SQL_SERVER'"
+		},
+		"LS_LKUP_MAX_VALUE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_LKUP_MAX_VALUE'"
+		},
+		"LS_SINK_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SINK_PARQUET'"
+		},
+		"LS_SOURCE_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SOURCE_CSV'"
+		},
+		"LS_SOURCE_EXCEL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SOURCE_EXCEL'"
+		},
+		"LS_SQLSERVER_ADLS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_ADLS'"
+		},
+		"LS_SQLSERVER_DB_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_DB'"
+		},
+		"LS_SQLSERVER_LKUP_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_LKUP'"
+		},
+		"LS_SqlTable_Parquet1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SqlTable_Parquet1'"
+		},
+		"adlsexcelsource1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adlsexcelsource1'"
+		},
+		"lS_Parent_SqlServer_DW_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lS_Parent_SqlServer_DW'"
+		},
+		"DS_SQL_SERVER_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost"
+		},
+		"DS_SQL_SERVER_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"DS_SQL_SERVER_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "GaurangS"
+		},
+		"LS_LKUP_MAX_VALUE_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost"
+		},
+		"LS_LKUP_MAX_VALUE_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqlmigration"
+		},
+		"LS_LKUP_MAX_VALUE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "GaurangS"
+		},
+		"LS_SINK_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsinkstorage12.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_CSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlexcelsource1.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_EXCEL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsexcelsource1.dfs.core.windows.net/"
+		},
+		"LS_SQLSERVER_ADLS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost"
+		},
+		"LS_SQLSERVER_ADLS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"LS_SQLSERVER_ADLS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "GaurangS"
+		},
+		"LS_SQLSERVER_DB_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost"
+		},
+		"LS_SQLSERVER_DB_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqlmigration"
+		},
+		"LS_SQLSERVER_DB_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "GaurangS"
+		},
+		"LS_SQLSERVER_LKUP_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost"
+		},
+		"LS_SQLSERVER_LKUP_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqlmigration"
+		},
+		"LS_SQLSERVER_LKUP_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "GaurangS"
+		},
+		"LS_SqlTable_Parquet1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsinkstorage12.dfs.core.windows.net/"
+		},
+		"adlsexcelsource1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsexcelsource1.dfs.core.windows.net/"
+		},
+		"lS_Parent_SqlServer_DW_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost"
+		},
+		"lS_Parent_SqlServer_DW_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqlmigration"
+		},
+		"lS_Parent_SqlServer_DW_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "GaurangS"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adffamers_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_SINK_PARQUET_accountKey": {
+						"value": "[parameters('LS_SINK_PARQUET_accountKey')]"
+					},
+					"LS_SOURCE_CSV_accountKey": {
+						"value": "[parameters('LS_SOURCE_CSV_accountKey')]"
+					},
+					"LS_SOURCE_EXCEL_accountKey": {
+						"value": "[parameters('LS_SOURCE_EXCEL_accountKey')]"
+					},
+					"adlsexcelsource1_accountKey": {
+						"value": "[parameters('adlsexcelsource1_accountKey')]"
+					},
+					"DS_SQL_SERVER_password": {
+						"value": "[parameters('DS_SQL_SERVER_password')]"
+					},
+					"LS_LKUP_MAX_VALUE_password": {
+						"value": "[parameters('LS_LKUP_MAX_VALUE_password')]"
+					},
+					"LS_SQLSERVER_ADLS_password": {
+						"value": "[parameters('LS_SQLSERVER_ADLS_password')]"
+					},
+					"LS_SQLSERVER_DB_password": {
+						"value": "[parameters('LS_SQLSERVER_DB_password')]"
+					},
+					"LS_SQLSERVER_LKUP_password": {
+						"value": "[parameters('LS_SQLSERVER_LKUP_password')]"
+					},
+					"LS_SqlTable_Parquet1_accountKey": {
+						"value": "[parameters('LS_SqlTable_Parquet1_accountKey')]"
+					},
+					"lS_Parent_SqlServer_DW_password": {
+						"value": "[parameters('lS_Parent_SqlServer_DW_password')]"
+					},
+					"LS_SINK_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_SINK_PARQUET_properties_typeProperties_url')]"
+					},
+					"LS_SOURCE_CSV_properties_typeProperties_url": {
+						"value": "[parameters('LS_SOURCE_CSV_properties_typeProperties_url')]"
+					},
+					"LS_SOURCE_EXCEL_properties_typeProperties_url": {
+						"value": "[parameters('LS_SOURCE_EXCEL_properties_typeProperties_url')]"
+					},
+					"adlsexcelsource1_properties_typeProperties_url": {
+						"value": "[parameters('adlsexcelsource1_properties_typeProperties_url')]"
+					},
+					"DS_SQL_SERVER_properties_typeProperties_server": {
+						"value": "[parameters('DS_SQL_SERVER_properties_typeProperties_server')]"
+					},
+					"DS_SQL_SERVER_properties_typeProperties_database": {
+						"value": "[parameters('DS_SQL_SERVER_properties_typeProperties_database')]"
+					},
+					"DS_SQL_SERVER_properties_typeProperties_userName": {
+						"value": "[parameters('DS_SQL_SERVER_properties_typeProperties_userName')]"
+					},
+					"LS_LKUP_MAX_VALUE_properties_typeProperties_server": {
+						"value": "[parameters('LS_LKUP_MAX_VALUE_properties_typeProperties_server')]"
+					},
+					"LS_LKUP_MAX_VALUE_properties_typeProperties_database": {
+						"value": "[parameters('LS_LKUP_MAX_VALUE_properties_typeProperties_database')]"
+					},
+					"LS_LKUP_MAX_VALUE_properties_typeProperties_userName": {
+						"value": "[parameters('LS_LKUP_MAX_VALUE_properties_typeProperties_userName')]"
+					},
+					"LS_SQLSERVER_ADLS_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_ADLS_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_ADLS_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_ADLS_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_ADLS_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_ADLS_properties_typeProperties_userName')]"
+					},
+					"LS_SQLSERVER_DB_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_DB_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_DB_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_DB_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_DB_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_DB_properties_typeProperties_userName')]"
+					},
+					"LS_SQLSERVER_LKUP_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_LKUP_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_LKUP_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_LKUP_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_LKUP_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_LKUP_properties_typeProperties_userName')]"
+					},
+					"LS_SqlTable_Parquet1_properties_typeProperties_url": {
+						"value": "[parameters('LS_SqlTable_Parquet1_properties_typeProperties_url')]"
+					},
+					"lS_Parent_SqlServer_DW_properties_typeProperties_server": {
+						"value": "[parameters('lS_Parent_SqlServer_DW_properties_typeProperties_server')]"
+					},
+					"lS_Parent_SqlServer_DW_properties_typeProperties_database": {
+						"value": "[parameters('lS_Parent_SqlServer_DW_properties_typeProperties_database')]"
+					},
+					"lS_Parent_SqlServer_DW_properties_typeProperties_userName": {
+						"value": "[parameters('lS_Parent_SqlServer_DW_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

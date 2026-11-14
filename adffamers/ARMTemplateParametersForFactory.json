@@ -1,0 +1,111 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adffamers"
+		},
+		"DS_SQL_SERVER_password": {
+			"value": ""
+		},
+		"LS_LKUP_MAX_VALUE_password": {
+			"value": ""
+		},
+		"LS_SINK_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_SOURCE_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_SOURCE_EXCEL_accountKey": {
+			"value": ""
+		},
+		"LS_SQLSERVER_ADLS_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_DB_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_LKUP_password": {
+			"value": ""
+		},
+		"LS_SqlTable_Parquet1_accountKey": {
+			"value": ""
+		},
+		"adlsexcelsource1_accountKey": {
+			"value": ""
+		},
+		"lS_Parent_SqlServer_DW_password": {
+			"value": ""
+		},
+		"DS_SQL_SERVER_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"DS_SQL_SERVER_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"DS_SQL_SERVER_properties_typeProperties_userName": {
+			"value": "GaurangS"
+		},
+		"LS_LKUP_MAX_VALUE_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"LS_LKUP_MAX_VALUE_properties_typeProperties_database": {
+			"value": "sqlmigration"
+		},
+		"LS_LKUP_MAX_VALUE_properties_typeProperties_userName": {
+			"value": "GaurangS"
+		},
+		"LS_SINK_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevsinkstorage12.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_CSV_properties_typeProperties_url": {
+			"value": "https://adlexcelsource1.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_EXCEL_properties_typeProperties_url": {
+			"value": "https://adlsexcelsource1.dfs.core.windows.net/"
+		},
+		"LS_SQLSERVER_ADLS_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"LS_SQLSERVER_ADLS_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"LS_SQLSERVER_ADLS_properties_typeProperties_userName": {
+			"value": "GaurangS"
+		},
+		"LS_SQLSERVER_DB_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"LS_SQLSERVER_DB_properties_typeProperties_database": {
+			"value": "sqlmigration"
+		},
+		"LS_SQLSERVER_DB_properties_typeProperties_userName": {
+			"value": "GaurangS"
+		},
+		"LS_SQLSERVER_LKUP_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"LS_SQLSERVER_LKUP_properties_typeProperties_database": {
+			"value": "sqlmigration"
+		},
+		"LS_SQLSERVER_LKUP_properties_typeProperties_userName": {
+			"value": "GaurangS"
+		},
+		"LS_SqlTable_Parquet1_properties_typeProperties_url": {
+			"value": "https://adlsdevsinkstorage12.dfs.core.windows.net/"
+		},
+		"adlsexcelsource1_properties_typeProperties_url": {
+			"value": "https://adlsexcelsource1.dfs.core.windows.net/"
+		},
+		"lS_Parent_SqlServer_DW_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"lS_Parent_SqlServer_DW_properties_typeProperties_database": {
+			"value": "sqlmigration"
+		},
+		"lS_Parent_SqlServer_DW_properties_typeProperties_userName": {
+			"value": "GaurangS"
+		}
+	}
+}
