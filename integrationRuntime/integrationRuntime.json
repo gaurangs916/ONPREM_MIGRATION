@@ -2,6 +2,9 @@
 	"name": "integrationRuntime",
 	"properties": {
 		"type": "SelfHosted",
-		"description": "sql to cloud"
+		"description": "sql to cloud",
+		"typeProperties": {
+			"selfContainedInteractiveAuthoringEnabled": false
+		}
 	}
 }
