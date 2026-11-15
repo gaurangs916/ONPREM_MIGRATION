@@ -11,10 +11,10 @@
 			"trustServerCertificate": false,
 			"authenticationType": "SQL",
 			"userName": "GaurangS",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2ZjVlZTUwNy1hYjc2LTRkYWUtYTA5NC02Y2E4ZmFlMDIyYzQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0ODExMWE5My01NDA0LTRiODEtOTI1Ny03MWI3ZmJhZTZmZTgiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
-			"referenceName": "integrationRuntime",
+			"referenceName": "integrationRuntime1",
 			"type": "IntegrationRuntimeReference"
 		}
 	}
