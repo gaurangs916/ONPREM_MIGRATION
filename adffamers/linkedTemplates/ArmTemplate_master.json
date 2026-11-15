@@ -43,6 +43,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SqlTable_Parquet1'"
 		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
 		"adlsexcelsource1_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'adlsexcelsource1'"
@@ -127,6 +131,18 @@
 			"type": "string",
 			"defaultValue": "https://adlsdevsinkstorage12.dfs.core.windows.net/"
 		},
+		"SqlServer1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqlmigration"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "GaurangS"
+		},
 		"adlsexcelsource1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsexcelsource1.dfs.core.windows.net/"
@@ -179,6 +195,9 @@
 					"LS_SOURCE_EXCEL_accountKey": {
 						"value": "[parameters('LS_SOURCE_EXCEL_accountKey')]"
 					},
+					"LS_SqlTable_Parquet1_accountKey": {
+						"value": "[parameters('LS_SqlTable_Parquet1_accountKey')]"
+					},
 					"adlsexcelsource1_accountKey": {
 						"value": "[parameters('adlsexcelsource1_accountKey')]"
 					},
@@ -197,8 +216,8 @@
 					"LS_SQLSERVER_LKUP_password": {
 						"value": "[parameters('LS_SQLSERVER_LKUP_password')]"
 					},
-					"LS_SqlTable_Parquet1_accountKey": {
-						"value": "[parameters('LS_SqlTable_Parquet1_accountKey')]"
+					"SqlServer1_password": {
+						"value": "[parameters('SqlServer1_password')]"
 					},
 					"lS_Parent_SqlServer_DW_password": {
 						"value": "[parameters('lS_Parent_SqlServer_DW_password')]"
@@ -211,6 +230,9 @@
 					},
 					"LS_SOURCE_EXCEL_properties_typeProperties_url": {
 						"value": "[parameters('LS_SOURCE_EXCEL_properties_typeProperties_url')]"
+					},
+					"LS_SqlTable_Parquet1_properties_typeProperties_url": {
+						"value": "[parameters('LS_SqlTable_Parquet1_properties_typeProperties_url')]"
 					},
 					"adlsexcelsource1_properties_typeProperties_url": {
 						"value": "[parameters('adlsexcelsource1_properties_typeProperties_url')]"
@@ -260,8 +282,14 @@
 					"LS_SQLSERVER_LKUP_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQLSERVER_LKUP_properties_typeProperties_userName')]"
 					},
-					"LS_SqlTable_Parquet1_properties_typeProperties_url": {
-						"value": "[parameters('LS_SqlTable_Parquet1_properties_typeProperties_url')]"
+					"SqlServer1_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_server')]"
+					},
+					"SqlServer1_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_database')]"
+					},
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
 					},
 					"lS_Parent_SqlServer_DW_properties_typeProperties_server": {
 						"value": "[parameters('lS_Parent_SqlServer_DW_properties_typeProperties_server')]"
@@ -275,6 +303,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adffamers_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adffamers_ArmTemplate_0')]"
+			]
 		}
 	]
 }

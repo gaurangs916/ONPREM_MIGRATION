@@ -43,6 +43,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SqlTable_Parquet1'"
 		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
 		"adlsexcelsource1_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'adlsexcelsource1'"
@@ -126,6 +130,18 @@
 		"LS_SqlTable_Parquet1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevsinkstorage12.dfs.core.windows.net/"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqlmigration"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "GaurangS"
 		},
 		"adlsexcelsource1_properties_typeProperties_url": {
 			"type": "string",
@@ -643,6 +659,24 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/SqlServerTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SqlServer1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SqlServer1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_SQL_SERVER')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -797,12 +831,12 @@
 					}
 				},
 				"connectVia": {
-					"referenceName": "integrationRuntime",
+					"referenceName": "integrationRuntime1",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
 			]
 		},
 		{
@@ -825,12 +859,12 @@
 					}
 				},
 				"connectVia": {
-					"referenceName": "integrationRuntime",
+					"referenceName": "integrationRuntime1",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
 			]
 		},
 		{
@@ -846,14 +880,36 @@
 						"type": "SecureString",
 						"value": "[parameters('LS_SqlTable_Parquet1_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SqlServer1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('SqlServer1_properties_typeProperties_server')]",
+					"database": "[parameters('SqlServer1_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('SqlServer1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SqlServer1_password')]"
+					}
 				},
 				"connectVia": {
-					"referenceName": "integrationRuntime",
+					"referenceName": "integrationRuntime1",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
 			]
 		},
 		{
@@ -893,12 +949,12 @@
 					}
 				},
 				"connectVia": {
-					"referenceName": "integrationRuntime",
+					"referenceName": "integrationRuntime1",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
 			]
 		},
 		{
@@ -908,6 +964,18 @@
 			"properties": {
 				"type": "SelfHosted",
 				"description": "sql to cloud",
+				"typeProperties": {
+					"selfContainedInteractiveAuthoringEnabled": false
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
 				"typeProperties": {}
 			},
 			"dependsOn": []

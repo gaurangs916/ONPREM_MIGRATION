@@ -32,6 +32,9 @@
 		"LS_SqlTable_Parquet1_accountKey": {
 			"value": ""
 		},
+		"SqlServer1_password": {
+			"value": ""
+		},
 		"adlsexcelsource1_accountKey": {
 			"value": ""
 		},
@@ -94,6 +97,15 @@
 		},
 		"LS_SqlTable_Parquet1_properties_typeProperties_url": {
 			"value": "https://adlsdevsinkstorage12.dfs.core.windows.net/"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "sqlmigration"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "GaurangS"
 		},
 		"adlsexcelsource1_properties_typeProperties_url": {
 			"value": "https://adlsexcelsource1.dfs.core.windows.net/"
