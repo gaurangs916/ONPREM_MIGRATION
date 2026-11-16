@@ -3,19 +3,33 @@
 	"properties": {
 		"parameters": {
 			"TableSchema": {
-				"type": "string",
+				"type": "string"
+			},
+			"TableName": {
+				"type": "string"
+			},
+			"WatermarkColumn": {
+				"type": "string"
+			},
+			"LastLoadValue": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"TableSchema": {
+				"type": "String",
 				"defaultValue": "@item().TableSchema"
 			},
 			"TableName": {
-				"type": "string",
+				"type": "String",
 				"defaultValue": "@item().TableName"
 			},
 			"WatermarkColumn": {
-				"type": "string",
+				"type": "String",
 				"defaultValue": "@item().WatermarkColumn"
 			},
 			"LastLoadValue": {
-				"type": "string",
+				"type": "String",
 				"defaultValue": "@item().LastLoadValue"
 			}
 		},
