@@ -45,6 +45,7 @@
 						"value": "@activity('LKUP_SOLTABLE_WATRMRK_DW').output.value",
 						"type": "Expression"
 					},
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "EXEC_SQL_INCREMENTAL",
