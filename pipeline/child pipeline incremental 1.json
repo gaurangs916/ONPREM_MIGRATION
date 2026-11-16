@@ -165,6 +165,24 @@
 				"type": "string"
 			}
 		},
+		"variables": {
+			"TableName": {
+				"type": "String",
+				"defaultValue": "@item().TableName"
+			},
+			"TableSchema": {
+				"type": "String",
+				"defaultValue": "@item().TableSchema"
+			},
+			"WatermarkColumn": {
+				"type": "String",
+				"defaultValue": "@item().WatermarkColumn"
+			},
+			"LastLoadValue": {
+				"type": "String",
+				"defaultValue": "@item().LastLoadValue"
+			}
+		},
 		"annotations": []
 	}
 }
