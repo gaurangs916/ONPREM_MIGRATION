@@ -18,7 +18,7 @@
 					"source": {
 						"type": "SqlServerSource",
 						"sqlReaderQuery": {
-							"value": "SELECT\nMAX(@{pipeline().parameters.WatermarkColumn}) AS MaxValue\nFROM\n@{pipeline().parameters.TableSchema}.@{pipeline().parameters.TableName}",
+							"value": "SELECT\nMAX(@{pipeline().parameters.WatermarkColumn}) AS MaxValue\nFROM\n@{pipeline().parameters.TableSchema}.@{pipeline().parameters.tablename}",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -29,7 +29,10 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schemaname": "@pipeline().parameters.TableSchema",
-							"tablename": "@pipeline().parameters.TableName"
+							"tablename": {
+								"value": "@pipeline().parameters.tablename",
+								"type": "Expression"
+							}
 						}
 					},
 					"firstRowOnly": false
