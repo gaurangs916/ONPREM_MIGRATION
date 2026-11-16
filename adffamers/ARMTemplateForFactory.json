@@ -600,6 +600,7 @@
 								"value": "@activity('LKUP_SOLTABLE_WATRMRK_DW').output.value",
 								"type": "Expression"
 							},
+							"isSequential": false,
 							"activities": [
 								{
 									"name": "EXEC_SQL_INCREMENTAL",
@@ -819,24 +820,6 @@
 					},
 					"LastLoadValue": {
 						"type": "string"
-					}
-				},
-				"variables": {
-					"TableSchema": {
-						"type": "String",
-						"defaultValue": "@item().TableSchema"
-					},
-					"TableName": {
-						"type": "String",
-						"defaultValue": "@item().TableName"
-					},
-					"WatermarkColumn": {
-						"type": "String",
-						"defaultValue": "@item().WatermarkColumn"
-					},
-					"LastLoadValue": {
-						"type": "String",
-						"defaultValue": "@item().LastLoadValue"
 					}
 				},
 				"annotations": []
