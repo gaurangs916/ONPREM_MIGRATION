@@ -299,7 +299,10 @@
 							"value": "@concat(dataset().Table_Name,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
 							"type": "Expression"
 						},
-						"fileSystem": "sqlmigration"
+						"fileSystem": {
+							"value": "adlsdevsinkstorage12",
+							"type": "Expression"
+						}
 					},
 					"compressionCodec": "snappy"
 				},
