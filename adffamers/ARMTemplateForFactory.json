@@ -349,24 +349,6 @@
 						"type": "string"
 					}
 				},
-				"variables": {
-					"TableSchema": {
-						"type": "String",
-						"defaultValue": "@item().TableSchema"
-					},
-					"TableName": {
-						"type": "String",
-						"defaultValue": "@item().TableName"
-					},
-					"WatermarkColumn": {
-						"type": "String",
-						"defaultValue": "@item().WatermarkColumn"
-					},
-					"LastLoadValue": {
-						"type": "String",
-						"defaultValue": "@item().LastLoadValue"
-					}
-				},
 				"annotations": [],
 				"lastPublishTime": "2026-11-14T04:58:27Z"
 			},
