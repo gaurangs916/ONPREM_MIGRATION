@@ -959,10 +959,7 @@
 							"value": "@concat(dataset().Table_Name,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
 							"type": "Expression"
 						},
-						"fileSystem": {
-							"value": "adlsdevsinkstorage12",
-							"type": "Expression"
-						}
+						"fileSystem": "migration"
 					},
 					"compressionCodec": "snappy"
 				},
